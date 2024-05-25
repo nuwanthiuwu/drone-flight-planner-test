@@ -11,7 +11,7 @@ public class TestDroneFlightPlanner extends BaseTests {
 
     @BeforeClass
     void init() {
-        this.droneFlightPlanner = new DroneFlightPlanner(super.driver);
+        this.droneFlightPlanner = new DroneFlightPlanner(getWebDriver());
     }
 
     @Test(priority = 1)

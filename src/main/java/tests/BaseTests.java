@@ -14,7 +14,7 @@ public class BaseTests {
     private static final boolean HEADLESS_ON = false;
     private static final String BASE_URL = "https://stupendous-birth.surge.sh/";
 
-    protected WebDriver driver;
+    private WebDriver driver;
 
     @BeforeSuite
     public void setUp() {
@@ -31,8 +31,13 @@ public class BaseTests {
         driver.manage().window().maximize();
     }
 
+    public WebDriver getWebDriver(){
+        return this.driver;
+    }
+
     @AfterSuite
-    public void closeBrowser() {
+    public void closeBrowser()
+    {
         driver.quit();
     }
 }
