@@ -27,5 +27,6 @@ public class TestDroneFlightPlanner extends BaseTests {
         int[] yAxis = {-120, -20, -60, 50, 100, 10};
         droneFlightPlanner.markPointsOnMapViewer(xAxis, yAxis);
         assertEquals(droneFlightPlanner.getNumberOfPointsDisplayed(), xAxis.length);
+        //TODO: second invocation fails and the points does not exceed 6, check this issue
     }
 }

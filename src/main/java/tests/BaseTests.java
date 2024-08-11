@@ -12,7 +12,7 @@ public class BaseTests {
 
     private static final String PATH_TO_CHROME_DRIVER = "chromedriver";
     private static final boolean HEADLESS_ON = false;
-    private static final String BASE_URL = "https://stupendous-birth.surge.sh/";
+    private static final String BASE_URL = "http://localhost:8000/";
 
     private WebDriver driver;
 

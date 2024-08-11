@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drone Flight Planner</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="flight-planner">
+    <button aria-label="Create a new Flight Planadd" id="createNewFlightPlan">Create a new Flight Plan</button>
+    <div id="map" class="leaflet-overlay-pane">
+        <svg></svg>
+    </div>
+    <p id="newPlanMessage" ng-show="editor.state==='empty'">Choose a point near your take off position to start creating your flight plan.</p>
+</div>
+
+<script src="scripts.js"></script>
+</body>
+</html>

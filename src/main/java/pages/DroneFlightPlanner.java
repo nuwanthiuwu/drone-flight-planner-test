@@ -5,8 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
-import java.util.concurrent.TimeUnit;
-
 public class DroneFlightPlanner {
     private final WebDriver driver;
 
@@ -29,13 +27,32 @@ public class DroneFlightPlanner {
     public void markPointsOnMapViewer(int[] xAxis, int[] yAxis) {
         WebElement element = driver.findElement(MAP_ELEMENT);
 
+        // Get the size of the map element
+        int mapWidth = element.getSize().getWidth();
+        int mapHeight = element.getSize().getHeight();
+
         Actions actions = new Actions(driver);
-        actions.moveToElement((element), 0, 0);
-        //Mark all the points on the map viewer
+        actions.moveToElement(element, 0, 0);
+
+        // Mark all the points on the map viewer
         for (int i = 0; i < xAxis.length; i++) {
-            actions.moveByOffset(xAxis[i], yAxis[i]).click().build().perform();
-            //Wait time
-            driver.manage().timeouts().implicitlyWait(SECONDS_WAIT_AFTER_POINT_ADDED, TimeUnit.SECONDS);
+            int xOffset = Math.min(Math.max(xAxis[i], -mapWidth / 2), mapWidth / 2);
+            int yOffset = Math.min(Math.max(yAxis[i], -mapHeight / 2), mapHeight / 2);
+
+            actions.moveByOffset(xOffset, yOffset).click().build().perform();
+
+            // Simulate implicit wait (can also use explicit wait here)
+           /* driver.manage().timeouts().implicitlyWait(SECONDS_WAIT_AFTER_POINT_ADDED, TimeUnit.SECONDS);*/
+
+            // Optional: Add a short sleep to prevent any rapid sequential actions
+            try {
+                Thread.sleep(SECONDS_WAIT_AFTER_POINT_ADDED * 1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            // Move back to the center of the element
+            actions.moveToElement(element, 0, 0);
         }
     }
 

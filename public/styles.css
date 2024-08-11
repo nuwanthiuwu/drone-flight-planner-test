@@ -1,0 +1,34 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+#flight-planner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+#map {
+    width: 600px;
+    height: 400px;
+    background-color: #e0e0e0;
+    position: relative;
+    margin-top: 20px;
+    border: 1px solid #ccc;
+}
+
+.leaflet-marker-icon {
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+}
+
+#newPlanMessage {
+    margin-top: 20px;
+    color: #666;
+}
