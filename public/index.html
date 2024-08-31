@@ -5,16 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Drone Flight Planner</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 </head>
 <body>
-<div id="flight-planner">
-    <button aria-label="Create a new Flight Planadd" id="createNewFlightPlan">Create a new Flight Plan</button>
-    <div id="map" class="leaflet-overlay-pane">
-        <svg></svg>
+<div class="container">
+    <header>
+        <h1>Drone Flight Planner</h1>
+    </header>
+    <div class="main-content">
+        <div class="control-panel">
+            <button id="create-flight-plan" aria-label="Create a new Flight Plan">Create New Flight Plan</button>
+            <button id="save-map" aria-label="Save the Flight Plan" class="hidden">Save Map</button>
+            <p id="flight-plan-message" class="hidden">Choose a point near your take off position to start creating your flight plan.</p>
+            <div id="saved-maps-container" style="background-color:#333"></div>
+        </div>
+        <div id="map" class="map-container"></div>
     </div>
-    <p id="newPlanMessage" ng-show="editor.state==='empty'">Choose a point near your take off position to start creating your flight plan.</p>
+   
 </div>
-
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
 <script src="scripts.js"></script>
 </body>
 </html>
+
